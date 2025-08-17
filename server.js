@@ -1,3 +1,7 @@
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server running on ${PORT}`);
+});
 const express = require("express");
 const app = express();
 const http = require("http").createServer(app);
