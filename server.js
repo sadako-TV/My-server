@@ -1,11 +1,9 @@
-const PORT = process.env.PORT || 3000;
-server.listen(PORT, '0.0.0.0', () => {
-  console.log(`Server running on ${PORT}`);
-});
 const express = require("express");
 const app = express();
 const http = require("http").createServer(app);
 const io = require("socket.io")(http);
+
+const PORT = process.env.PORT || 3000;   // Render에서 PORT를 받아옴
 
 app.use(express.static("public"));
 
@@ -31,6 +29,6 @@ io.on("connection", (socket) => {
   });
 });
 
-http.listen(3000, () => {
-  console.log("서버 실행 중 → http://localhost:3000");
+http.listen(PORT, '0.0.0.0', () => {   // ✅ 포트 고정 안 하고 Render 지정 값 사용
+  console.log(`서버 실행 중 → ${PORT}`);
 });

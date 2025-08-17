@@ -2,36 +2,33 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>DM 스타일 채팅</title>
+  <title>Socket.IO 채팅</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- 상단 배경 -->
-  <div class="banner">
-    <img src="ebony.jpg" alt="흑요석 배경">
-    <h1 id="room-name"></h1>
+  <div class="chat-container">
+    <header>
+      <h2 id="room-name">방: </h2>
+    </header>
+
+    <main>
+      <ul id="messages" class="messages"></ul>
+    </main>
+
+    <form id="chat-form">
+      <input id="msg" type="text" placeholder="메시지를 입력하세요" autocomplete="off">
+      <button type="submit">전송</button>
+    </form>
   </div>
 
-  <!-- 채팅 영역 -->
-  <div id="chat-window">
-    <ul id="messages"></ul>
-  </div>
-
-  <!-- 입력창 -->
-  <form id="chat-form">
-    <input id="msg" autocomplete="off" placeholder="메시지를 입력하세요..." />
-    <button type="submit">보내기</button>
-  </form>
-
-  <!-- 메모판 -->
-  <div id="memo-section">
-    <h2>메모판</h2>
-    <input id="memo-input" placeholder="메모 작성" />
+  <div class="memo-container">
+    <h3>메모판 (나만 보기)</h3>
+    <input id="memo-input" type="text" placeholder="메모 입력">
     <button id="add-memo">추가</button>
-    <ul id="memo-list"></ul>
+    <ul id="memo-list" class="memo-list"></ul>
   </div>
 
   <script src="/socket.io/socket.io.js"></script>
-  <script src="script.js"></script>
+  <script src="client.js"></script>
 </body>
 </html>
